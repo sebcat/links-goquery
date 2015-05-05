@@ -42,6 +42,10 @@ func (c *AnchorCollector) Selection() func(int, *goquery.Selection) {
 			return
 		}
 
+		if urlobj.Scheme != "http" && urlobj.Scheme != "https" {
+			return
+		}
+
 		if c.hrefs == nil {
 			c.hrefs = make(map[string]struct{})
 		}
